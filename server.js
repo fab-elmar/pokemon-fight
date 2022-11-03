@@ -1,10 +1,10 @@
 import express from "express";
 import pokedex from "./data/pokedex.json" assert { type: "json" }
-
+import cors from "cors";
 const app = express();
 const PORT = process.env.PORT || 3332
 app.use(express.json())
-
+app.use(cors())
 app.get('/pokemon', (req, res) => res.json(pokedex))
 
 app.get('/pokemon/:id', (req, res) => {
